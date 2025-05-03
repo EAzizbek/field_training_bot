@@ -10,8 +10,6 @@ services:
     plan: free
     envVars:
       - fromDotEnv: true
-    ports:
-      - 8000
 
   - type: worker
     name: training-bot
