@@ -9,7 +9,7 @@ services:
         - Dockerfile.backend
     plan: free
     envVars:
-      - fromDotEnv: true
+      - fromGroup: field-training-bot
 
   - type: worker
     name: training-bot
@@ -21,11 +21,14 @@ services:
         - Dockerfile.bot
     plan: free
     envVars:
-      - fromDotEnv: true
+      - fromGroup: field-training-bot
 
   - name: training-redis
     type: redis
     plan: free
+    ipAllowList:
+      - source: 0.0.0.0/0
+        description: Allow all IPs
 
 databases:
   - name: training-db
