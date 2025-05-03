@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: training-backend
+    env: docker
+    repo: https://github.com/EAzizbek/field_training_bot
+    dockerfilePath: Dockerfile.backend
+    buildFilter:
+      paths:
+        - Dockerfile.backend
+    plan: free
+    envVars:
+      - fromDotEnv: true
+    ports:
+      - 8000
+
+  - type: worker
+    name: training-bot
+    env: docker
+    repo: https://github.com/EAzizbek/field_training_bot
+    dockerfilePath: Dockerfile.bot
+    buildFilter:
+      paths:
+        - Dockerfile.bot
+    plan: free
+    envVars:
+      - fromDotEnv: true
+
+databases:
+  - name: training-db
+    plan: free
+    postgresMajorVersion: 14
+    ipAllowList: []  
+    databaseName: training_db
+    user: training_user
+    password: training_pass
+
+redis:
+  - name: training-redis
+    plan: free
