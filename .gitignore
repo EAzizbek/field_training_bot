@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+*.env.*
+
+# Virtual env
+venv/
+env/
+ENV/
+
+# Django stuff
+*.log
+*.pot
+*.pyc
+*.sqlite3
+db.sqlite3
+
+# Media & static
+/media
+/staticfiles
+/static
+
+# VSCode, PyCharm, etc
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Migrations (ixtiyoriy)
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# Coverage reports
+htmlcov/
+.coverage
+.tox/
+.nox/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Secret config
+config.yaml
+settings_local.py
+
+# Docker
+*.pid
+*.tar
+*.log
+docker-compose.override.yml
+
+# Build
+build/
+dist/
+*.egg-info/
